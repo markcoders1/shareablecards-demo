@@ -1,0 +1,637 @@
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --orange-color: #FF7B01;
+    --color-1: #F3F2EE;
+    --color-2: #929292;
+    --color-3: #939393;
+    --color-4: #ABABAB;
+    --color-5: #B0B0B0;
+    --color-6: #F3F2EE;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #e5e5e5 !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+.z-2 {
+    z-index: 2;
+}
+
+.vcard-one.main-content {
+    background-color: #fff;
+    max-width: 576px;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.vcard-one .vcard-one-heading {
+    color: #313bac;
+    font-size: 28px;
+    font-weight: 600
+}
+
+.vcard-one__banner {
+    height: 306px;
+}
+
+.vcard-one__banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    background: #000000;
+    opacity: 0.85;
+    z-index: 1;
+}
+
+
+
+.vcard-one .activeSlot {
+    background-color: #313bac !important;
+    color: #fff !important
+}
+
+.vcard-one__profile .avatar {
+    top: -50px;
+}
+
+.vcard-one__profile .avatar img {
+    height: 110px;
+    max-width: 110px;
+    min-width: 110px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 110px;
+    border-radius: 18px;
+    border: 3px solid var(--color-1);
+}
+
+.vcard-one__profile-details {
+    /* position: absolute;
+    top: 45%;
+    z-index: 2; */
+    padding: 0 20px 0 40px;
+    gap: 5px;
+}
+
+.vcard-one__profile-details .profile-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 29px;
+}
+
+.vcard-one__profile-details .profile-detail,
+.services-detail {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 15px;
+    color: var(--color-1);
+}
+
+.status {
+    font-family: 'Syne', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    color: var(--color-3);
+}
+
+.profile-img img {
+    height: 306px;
+    object-fit: cover;
+    -o-object-fit: cover;
+    float: right;
+}
+.hours-text .orange
+{
+    color: #FF7B01;
+}
+.hours .me-2 {
+    color: #ff7b01;
+}
+/* contact start */
+
+#contact .container {
+    max-width: 425px;
+}
+
+.contact-icon {
+    font-size: 16px;
+    color: var(--orange-color);
+}
+
+.contact-name {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 15px;
+}
+
+.contact-link {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+/* contact end */
+
+/* services */
+
+.services-left .status {
+    color: var(--color-2);
+}
+
+.services-left .services-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 38px;
+}
+
+.services-left .services-detail {
+    color: var(--color-2);
+}
+
+.services-right .services-category {
+    background-color: var(--color-1);
+    padding: 20px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    border-radius: 5px;
+    height: 158px;
+    overflow-y: auto;
+}
+
+.services-category::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+.services-category::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 5px;
+}
+
+/* Handle */
+.services-category::-webkit-scrollbar-thumb {
+    background: var(--orange-color);
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+.services-category::-webkit-scrollbar-thumb:hover {
+    background: orangered;
+}
+
+.services-right .services-category hr {
+    border-top: 1px solid var(--color-2);
+}
+
+.services-right .services-img img {
+    width: 68px;
+    height: 52px;
+}
+
+.services-right .category-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px !important;
+    font-weight: 500;
+    line-height: 38px;
+    color: #000;
+}
+.category-img img {
+    width: 70px;
+    height: 50px;
+    object-fit: cover;
+}
+.hours-text {
+    color: var(--black);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+}
+.hours span
+{
+    color: var(--black);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+}
+/* gllery */
+
+#gallery img {
+    height: 169px;
+    width: 168px;
+    object-fit: cover;
+}
+
+.main-heading {
+    font-family: 'Outfit', sans-serif;
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+
+.text-orange {
+    color: var(--orange-color);
+}
+
+
+.divider {
+    border-top: 2px solid;
+}
+
+
+.social-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 10px;
+    text-decoration: none;
+    width: 22px;
+    height: 22px;
+    background-color: var(--white);
+    color: var(--black);
+    font-size: 14px;
+    border-radius: 5px;
+}
+.social-icons a svg
+{
+    font-size: 1rem !important;
+}
+.vcard-one__profile-details .social-icons .icon {
+    color: var(--black);
+    cursor: pointer;
+    transition: all .3s ease
+}
+
+
+/* services */
+
+.services {
+    background-color: #FFFAF5;
+}
+
+.services .container {
+    max-width: 540px;
+}
+
+.service-card .service-img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, .20);
+}
+
+.service-card .service-divider {
+    background: #FEAF11;
+    height: 30px;
+    width: 1px;
+    margin-top: -15px;
+    margin-bottom: 5px;
+}
+
+.service-card .card-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+}
+
+.service-card .card-text {
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 12px;
+}
+
+
+.blog-slider-2 .slick-prev::before {
+    display: none;
+}
+
+.blog-slider-2 .slick-next::before {
+    display: none;
+}
+
+.blog-slider-2 .slick-prev {
+    top: 100%;
+    left: 44%;
+}
+
+.blog-slider-2 .slick-next {
+    top: 100%;
+    right: 44%;
+}
+
+/* testimonial */
+
+.testimonial-slider-2 {
+    max-width: 470px;
+}
+
+.testimonial-card {
+    display: flex;
+    gap: 15px;
+}
+
+.testimonial-card .testimonial-desc {
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 18px;
+    color: var(--white);
+}
+
+.testimonial-card .testimonial-profile {
+    height: 151px;
+    width: 152px;
+    object-fit: cover;
+    -o-object-fit: cover;
+    margin-bottom: 8px;
+}
+
+.testimonial-card .profile-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19px;
+    text-align: center;
+    color: var(--orange-color);
+}
+
+.testimonial-card .designation {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    text-align: center;
+    color: var(--color-5);
+}
+
+.testimonial-slider-2 .slick-dots>li {
+    display: inline-block;
+    background-color: #D9D9D9;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    margin: 0 4px;
+}
+
+.testimonial-slider-2 .slick-dots>li.slick-active {
+    background-color: var(--orange-color);
+}
+
+.testimonial-card .card-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+}
+
+.testimonial-card .card-text {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #8C8C8C;
+}
+
+.testimonial-slider-2 .slick-dots {
+    bottom: 0;
+}
+
+/* blog */
+
+.blog {
+    position: relative;
+    padding: 70px 0 90px;
+}
+
+
+.blog .container {
+    max-width: 540px;
+}
+.service
+{
+    align-items: center;
+}
+.blog .card {
+    background-color: var(--color-1);
+    border: 0;
+    box-shadow: none;
+}
+
+.blog .card .card-body{
+    padding: 14px;
+}
+
+.blog .card img{
+    width: 101px;
+    height: 113px;
+    object-fit: cover;
+    -o-object-fit: cover;
+}
+
+
+.blog .card-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    color: var(--black);
+}
+
+.blog .card-text {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 15px;
+    color: var(--color-3);
+}
+
+/* appointment */
+
+.ps-30 {
+    padding-left: 30px;
+}
+
+.appointment-wrapper {
+    background-color: var(--black);
+    padding: 70px 0;
+}
+
+.appointment {
+    padding: 0 20px;
+}
+
+.appointment label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    margin-bottom: 15px;
+}
+
+.appointment .appoint-date,.appointment .time-slot {
+    border: 1px solid var(--white);
+    padding: 14px 10px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: center;
+    background: transparent;
+    color: #fff;
+    border-radius: 0px !important;
+    cursor: pointer;
+    min-width: 160px;
+}
+
+
+.vcard-one .language ul {
+    list-style: none
+}
+
+.vcard-one .language ul .lang-list {
+    background: #313bac;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    padding: 10px 20px;
+    transition: all .3s ease;
+    width: -moz-fit-content;
+    width: fit-content
+}
+
+.vcard-one .language ul .lang-list .lang-head,
+.vcard-one .language ul .lang-list .lang-head i {
+    color: #fff
+}
+
+.vcard-one .language ul .lang-list .lang-hover-list {
+    font-size: 15px;
+    left: unset !important;
+    margin: 15px 0 0;
+    min-width: 150px;
+    right: 0;
+    width: 115%
+}
+
+.vcard-one .language ul .lang-list .lang-hover-list li {
+    padding: 5px 15px
+}
+
+.vcard-one .language ul .lang-list .lang-hover-list li:hover {
+    background-color: #f1faff !important
+}
+
+.vcard-one .language ul .lang-list .lang-hover-list li:hover a {
+    color: #009ef7 !important
+}
+
+.vcard-one .language ul .lang-list .lang-hover-list li.active {
+    background-color: #f1faff !important
+}
+
+.vcard-one .language ul .lang-list .lang-hover-list li.active a {
+    color: #009ef7 !important
+}
+
+.vcard-one .language ul .lang-list .lang-hover-list li a {
+    color: #5e6278 !important;
+    text-decoration: none
+}
+
+.vcard-one .language ul .lang-list .lang-hover-list li img {
+    height: 20px !important;
+    width: 25px !important
+}
+
+.btn-check:focus+.btn,
+.btn:focus {
+    box-shadow: unset !important;
+    outline: unset !important
+}
+
+
+
+.vcard-one .language ul .lang-list .lang-hover-list {
+    margin: 0
+}
+
+.vcard-one .language ul .lang-list .lang-hover-list.top-dropdown {
+    margin: -80px 0 0
+}
+
+
+.profile-description {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 21px;
+    text-align: center;
+    max-width: 500px;
+    padding: 0 15px;
+    color: var(--color-2);
+}
+.slick-dots li button:before
+{
+    display: none;
+}
+.appointment .activeSlot {
+    background-color: #fff !important;
+    color: #000 !important;
+}
+.appointmentAdd {
+    background: transparent !important;
+    border-color: #fff !important;
+    border-radius: 0px !important;
+    padding: 10px;
+}
+.btn-section .fixed-btn-section .bars-btn
+{
+    background: #000;
+    box-shadow: 0px 0px 5px #fff;
+}
+.stickyIcon button, .stickyIcon a {
+    background: #fff;
+    border: 1px solid #1d2051;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    color: #000;
+}
+.stickyIcon button svg, .stickyIcon a svg
+{
+    color: #000 !important;
+}
