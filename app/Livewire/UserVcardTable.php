@@ -5,10 +5,13 @@ namespace App\Livewire;
 use App\Models\Vcard;
 use Illuminate\Database\Eloquent\Builder;
 use App\Livewire\LivewireTableComponent;
+use App\Traits\DemoModeTrait;
 use Rappasoft\LaravelLivewireTables\Views\Column;
 
 class UserVcardTable extends LivewireTableComponent
 {
+    use DemoModeTrait;
+    
     protected $model = Vcard::class;
     public $selectedRecordId;
 
@@ -86,6 +89,10 @@ class UserVcardTable extends LivewireTableComponent
 }
     public function bulkDelete()
     {
+        if ($this->checkDemoMode('bulkDelete')) {
+            return;
+        }
+        
         if (count($this->getSelected()) > 0) {
             $vcardIds = $this->getSelected();
             $this->dispatch('bulk-delete-vcard', $vcardIds);
@@ -95,10 +102,14 @@ class UserVcardTable extends LivewireTableComponent
     }
     public function deleteVcard($vcardIds)
     {
-            Vcard::whereIn('id', $vcardIds)->delete();
-            $this->setBuilder($this->builder());
-            $this->dispatch('delete-vcard-success');
-            $this->clearSelected();
+        if ($this->checkDemoMode('deleteVcard')) {
+            return;
+        }
+        
+        Vcard::whereIn('id', $vcardIds)->delete();
+        $this->setBuilder($this->builder());
+        $this->dispatch('delete-vcard-success');
+        $this->clearSelected();
     }
 
     public function updatedSelected():void

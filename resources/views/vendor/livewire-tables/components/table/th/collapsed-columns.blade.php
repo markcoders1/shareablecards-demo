@@ -1,29 +1,16 @@
-@aware(['component', 'tableName'])
-
-@if ($component->collapsingColumnsAreEnabled() && $component->hasCollapsedColumns())
-    @if ($component->isTailwind())
-        <th
-            scope="col"
-            {{
-                $attributes
-                    ->merge(['class' => 'table-cell dark:bg-gray-800 laravel-livewire-tables-reorderingMinimised'])
-                    ->class(['sm:hidden' => !$component->shouldCollapseOnTablet() && !$component->shouldCollapseAlways()])
-                    ->class(['md:hidden' => !$component->shouldCollapseOnMobile() && !$component->shouldCollapseOnTablet() && !$component->shouldCollapseAlways()])
-                    ->class(['lg:hidden' => !$component->shouldCollapseAlways()])
-            }}
-            :class="{ 'laravel-livewire-tables-reorderingMinimised': ! currentlyReorderingStatus }"
-        ></th>
-    @elseif ($component->isBootstrap())
-        <th
-            scope="col"
-            {{
-                $attributes
-                    ->merge(['class' => 'd-table-cell laravel-livewire-tables-reorderingMinimised'])
-                    ->class(['d-sm-none' => !$component->shouldCollapseOnTablet() && !$component->shouldCollapseAlways()])
-                    ->class(['d-md-none' => !$component->shouldCollapseOnMobile() && !$component->shouldCollapseOnTablet() && !$component->shouldCollapseAlways()])
-                    ->class(['d-lg-none' => !$component->shouldCollapseAlways()])
-            }}                    
-            :class="{ 'laravel-livewire-tables-reorderingMinimised': ! currentlyReorderingStatus }"
-        ></th>
-    @endif
+@aware(['isTailwind', 'isBootstrap'])
+@if ($this->collapsingColumnsAreEnabled && $this->hasCollapsedColumns)
+    <th scope="col" :class="{ 'laravel-livewire-tables-reorderingMinimised': ! currentlyReorderingStatus }" {{
+        $attributes->merge()
+            ->class([
+                'table-cell dark:bg-gray-800 laravel-livewire-tables-reorderingMinimised' => $isTailwind,
+                'sm:hidden' => $isTailwind && !$this->shouldCollapseOnTablet && !$this->shouldCollapseAlways,
+                'md:hidden' => $isTailwind && !$this->shouldCollapseOnMobile && !$this->shouldCollapseOnTablet && !$this->shouldCollapseAlways,
+                'lg:hidden' => $isTailwind && !$this->shouldCollapseAlways,
+                'd-table-cell laravel-livewire-tables-reorderingMinimised' => $isBootstrap,
+                'd-sm-none' => $isBootstrap && !$this->shouldCollapseOnTablet && !$this->shouldCollapseAlways,
+                'd-md-none' => $isBootstrap && !$this->shouldCollapseOnMobile && !$this->shouldCollapseOnTablet && !$this->shouldCollapseAlways,
+                'd-lg-none' => $isBootstrap && !$this->shouldCollapseAlways,
+            ])
+        }}></th>
 @endif

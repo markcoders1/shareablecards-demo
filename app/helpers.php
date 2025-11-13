@@ -233,6 +233,8 @@ function getDashboardURL()
         return RouteServiceProvider::DASHBOARD;
     } elseif (Auth::user()->hasRole(CustomRole::ROLE_ADMIN)) {
         return RouteServiceProvider::ADMIN_DASHBOARD;
+    } elseif (Auth::user()->hasRole(CustomRole::ROLE_USER)) {
+        return RouteServiceProvider::ADMIN_DASHBOARD;
     }
 
     return RouteServiceProvider::HOME;

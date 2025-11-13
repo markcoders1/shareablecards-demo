@@ -112,7 +112,7 @@ Route::middleware(['freshInstall'])->group(function () {
         Route::get('/download-attachment/{id}', [SubscriptionController::class, 'downloadAttachment']);
         Route::get('/download-mail-attachment/{id}', [SubscriptionController::class, 'downloadMailAttachment']);
 
-        Route::prefix('admin')->middleware('role:admin')->group(function () {
+        Route::prefix('admin')->middleware('role:admin|user')->group(function () {
 
             Route::middleware('multi_tenant')->group(function () {
 
@@ -578,7 +578,7 @@ Route::middleware(['freshInstall'])->group(function () {
     //user delete
     Route::delete('/delete-data/{user}', [UserController::class, 'userDelete'])->name('delete-user');
 
-    Route::prefix('admin')->middleware('subscription', 'auth', 'valid.user', 'role:admin', 'multi_tenant')->group(function () {
+    Route::prefix('admin')->middleware('subscription', 'auth', 'valid.user', 'role:admin|user', 'multi_tenant')->group(function () {
 
         //user delete
         Route::get('delete-account', [VcardController::class, 'deleteAccount'])->name('delete-account');

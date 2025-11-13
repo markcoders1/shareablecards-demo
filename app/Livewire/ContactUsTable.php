@@ -17,7 +17,7 @@ class ContactUsTable extends LivewireTableComponent
         $this->setPrimaryKey('id');
         $this->setPageName('contact-us-table');
         $this->setDefaultSort('created_at', 'desc');
-        $this->setEmptyMessage('messages.common.no_data_available');
+        $this->setEmptyMessage(__('messages.common.no_data_available'));
         $this->setColumnSelectStatus(false);
         $this->setQueryStringDisabled();
         $this->resetPage('contact-us-table');

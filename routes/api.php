@@ -15,6 +15,7 @@ use App\Http\Controllers\API\Admin\VcardAPIController;
 use App\Http\Controllers\API\SuperAdmin\BusinessAPIController as SuperAdminBusinessAPIController;
 use App\Http\Controllers\API\SuperAdmin\GroupsAPIController as SuperAdminGroupsAPIController;
 use App\Http\Controllers\API\SuperAdmin\VcardsAPIController as SuperAdminVcardsAPIController;
+use App\Http\Controllers\WooCommerceWebhookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,12 @@ Route::post('/forgot-password',
 Route::post('/password',
     [AuthAPIController::class, 'resetPassword'])->middleware('throttle:5,1')->name('set.password');
 Route::post('/reset-password', [AuthAPIController::class, 'changePassword'])->name('password.reset');
+
+// WooCommerce Webhooks (No authentication required - webhooks from external source)
+Route::post('/webhooks/woocommerce/order-created', [WooCommerceWebhookController::class, 'handleOrderCreated'])
+    ->name('webhooks.woocommerce.order.created');
+Route::post('/webhooks/woocommerce/order-updated', [WooCommerceWebhookController::class, 'handleOrderUpdated'])
+    ->name('webhooks.woocommerce.order.updated');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout', [AuthAPIController::class, 'logout']);

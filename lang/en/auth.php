@@ -28,6 +28,8 @@ return [
     'sign_up' => 'Sign Up',
     'sign_out' => 'Sign out',
     'register' => 'Register',
+    'login_as_admin' => 'Login as Admin',
+    'login_as_user' => 'Login as User',
     'modern_&_powerful_interface' => 'Modern & Powerful Interface',
     "choose_a_plan_that's_right_for_you" => "Choose a plan that's right for you",
     'stories_from_our_customers' => 'Stories From Our Customers',

@@ -1,83 +1,82 @@
-@aware(['component', 'tableName'])
-@props(['filterGenericData'])
+@aware([ 'tableName','isTailwind','isBootstrap'])
+@props([])
+@php($toolBarAttributes = $this->getToolBarAttributesBag)
 
-@if ($component->hasConfigurableAreaFor('before-toolbar'))
-    @include($component->getConfigurableAreaFor('before-toolbar'), $component->getParametersForConfigurableArea('before-toolbar'))
-@endif
-
-<div @class([
-        'd-md-flex justify-content-between mb-3' => $component->isBootstrap(),
-        'md:flex md:justify-between mb-4 px-4 md:p-0' => $component->isTailwind(),
-    ])
+<div
+    {{
+        $toolBarAttributes->merge()
+        ->class([
+            'md:flex md:justify-between mb-4 px-4 md:p-0' => $isTailwind && ($toolBarAttributes['default-styling'] ?? true),
+            'd-md-flex justify-content-between mb-3' => $isBootstrap && ($toolBarAttributes['default-styling'] ?? true),
+        ])
+        ->except(['default','default-styling','default-colors'])
+    }}
 >
     <div @class([
-            'd-md-flex' => $component->isBootstrap(),
-            'w-full mb-4 md:mb-0 md:w-2/4 md:flex space-y-4 md:space-y-0 md:space-x-2' => $component->isTailwind(),
+            'd-md-flex' => $isBootstrap,
+            'w-full mb-4 md:mb-0 md:w-2/4 md:flex space-y-4 md:space-y-0 md:space-x-2' => $isTailwind,
         ])
     >
-        <div x-cloak x-show="!currentlyReorderingStatus">
-            @if ($component->hasConfigurableAreaFor('toolbar-left-start'))
-                @include($component->getConfigurableAreaFor('toolbar-left-start'), $component->getParametersForConfigurableArea('toolbar-left-start'))
-            @endif
-        </div>
+        @if ($this->hasConfigurableAreaFor('toolbar-left-start'))
+            <div x-cloak x-show="!currentlyReorderingStatus" @class([
+                'mb-3 mb-md-0 input-group' => $isBootstrap,
+                'flex rounded-md shadow-sm' => $isTailwind,
+            ])>
+                @include($this->getConfigurableAreaFor('toolbar-left-start'), $this->getParametersForConfigurableArea('toolbar-left-start'))
+            </div>
+        @endif
 
-        @if ($component->reorderIsEnabled())
+        @if ($this->showReorderButton())
             <x-livewire-tables::tools.toolbar.items.reorder-buttons />
         @endif
 
-
-
-        @if ($component->filtersAreEnabled() && $component->filtersVisibilityIsEnabled() && $component->hasVisibleFilters())
-            <x-livewire-tables::tools.toolbar.items.filter-button :$filterGenericData />
+        @if ($this->showSearchField())
+            <x-livewire-tables::tools.toolbar.items.search-field />
         @endif
 
-        @if ($component->hasConfigurableAreaFor('toolbar-left-end'))
-            <div x-cloak x-show="!currentlyReorderingStatus">
-                @include($component->getConfigurableAreaFor('toolbar-left-end'), $component->getParametersForConfigurableArea('toolbar-left-end'))
+        @if ($this->showFiltersButton())
+            <x-livewire-tables::tools.toolbar.items.filter-button />
+        @endif
+
+        @if($this->showActionsInToolbarLeft())
+            <x-livewire-tables::includes.actions/>
+        @endif
+
+        @if ($this->hasConfigurableAreaFor('toolbar-left-end'))
+            <div x-cloak x-show="!currentlyReorderingStatus" @class([
+                'mb-3 mb-md-0 input-group' => $isBootstrap,
+                'flex rounded-md shadow-sm' => $isTailwind,
+            ])>
+                @include($this->getConfigurableAreaFor('toolbar-left-end'), $this->getParametersForConfigurableArea('toolbar-left-end'))
             </div>
         @endif
     </div>
 
     <div x-cloak x-show="!currentlyReorderingStatus"
         @class([
-            'd-md-flex' => $component->isBootstrap(),
-            'md:flex md:items-center space-y-4 md:space-y-0 md:space-x-2' => $component->isTailwind(),
+            'd-md-flex' => $isBootstrap,
+            'md:flex md:items-center space-y-4 md:space-y-0 md:space-x-2' => $isTailwind,
         ])
     >
-        @if ($component->hasConfigurableAreaFor('toolbar-right-start'))
-            @include($component->getConfigurableAreaFor('toolbar-right-start'), $component->getParametersForConfigurableArea('toolbar-right-start'))
+        @includeWhen($this->hasConfigurableAreaFor('toolbar-right-start'), $this->getConfigurableAreaFor('toolbar-right-start'), $this->getParametersForConfigurableArea('toolbar-right-start'))
+
+        @if($this->showActionsInToolbarRight())
+            <x-livewire-tables::includes.actions/>
         @endif
 
-        @if ($component->showBulkActionsDropdownAlpine())
+        @if ($this->showBulkActionsDropdownAlpine() && $this->shouldAlwaysHideBulkActionsDropdownOption != true)
             <x-livewire-tables::tools.toolbar.items.bulk-actions />
         @endif
 
-        @if ($component->columnSelectIsEnabled())
+        @if ($this->columnSelectIsEnabled)
             <x-livewire-tables::tools.toolbar.items.column-select />
         @endif
 
-
-         {{-- @if ($component->paginationIsEnabled() && $component->perPageVisibilityIsEnabled())
+        @if ($this->showPaginationDropdown())
             <x-livewire-tables::tools.toolbar.items.pagination-dropdown />
-        @endif --}}
-
-        @if ($component->hasConfigurableAreaFor('toolbar-right-end'))
-            @include($component->getConfigurableAreaFor('toolbar-right-end'), $component->getParametersForConfigurableArea('toolbar-right-end'))
         @endif
+
+        @includeWhen($this->hasConfigurableAreaFor('toolbar-right-end'), $this->getConfigurableAreaFor('toolbar-right-end'), $this->getParametersForConfigurableArea('toolbar-right-end'))
     </div>
 </div>
-@if (
-    $component->filtersAreEnabled() &&
-    $component->filtersVisibilityIsEnabled() &&
-    $component->hasVisibleFilters() &&
-    $component->isFilterLayoutSlideDown()
-)
-    <x-livewire-tables::tools.toolbar.items.filter-slidedown :$filterGenericData />
-@endif
 
-
-@if ($component->hasConfigurableAreaFor('after-toolbar'))
-    <div x-cloak x-show="!currentlyReorderingStatus" >
-        @include($component->getConfigurableAreaFor('after-toolbar'), $component->getParametersForConfigurableArea('after-toolbar'))
-    </div>
-@endif

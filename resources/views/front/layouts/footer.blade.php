@@ -7,7 +7,7 @@
 {{--                <p class="text-blue-100 fs-18">--}}
 {{--                  {{__('messages.placeholder.receive_latest_news')}}--}}
 {{--                </p>--}}
-{{--                <form action="{{route('email.sub')}}" method="post" id="addEmail">--}}
+{{--                <form action="{{route('email-sub')}}" method="post" id="addEmail">--}}
 {{--                    @csrf()--}}
 {{--                    <div class="subscribe-inputgrp position-relative">--}}
 {{--                        <input name="email" type="email" class="form-control" placeholder="{{ __('messages.front.your_email_address') }}">--}}
@@ -97,7 +97,7 @@
                     <p class="text-gray-400 fs-18"> {{__('messages.placeholder.receive_latest_news')}}
                     </p>
                 </div>
-                <form action="{{route('email.sub')}}" method="post" id="addEmail">
+                <form action="{{route('email-sub')}}" method="post" id="addEmail">
                     @csrf()
                     <div class="subscribe-inputgrp position-relative">
                         <input name="email" type="email" class="form-control bg-white"
@@ -160,7 +160,7 @@
                     <p class="text-gray-400 fs-18"> {{__('messages.placeholder.receive_latest_news')}}
                     </p>
                 </div>
-                <form action="{{route('email.sub')}}" method="post" id="addEmail">
+                <form action="{{route('email-sub')}}" method="post" id="addEmail">
                     @csrf()
                     <div class="subscribe-inputgrp position-relative">
                         <input name="email" type="email" class="form-control bg-white"

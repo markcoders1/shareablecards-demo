@@ -26,6 +26,7 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \Spatie\CookieConsent\CookieConsentMiddleware::class,
+        \App\Http\Middleware\DemoModeMiddleware::class,
     ];
 
     /**
@@ -82,5 +83,6 @@ class Kernel extends HttpKernel
         'checkVcardAnalyst' => CheckVcardAnalytics::class,
         'checkVcardEnquiry' => CheckVcardEnquiry::class,
         'freshInstall' => \App\Http\Middleware\FreshInstall::class,
+        'demo.mode' => \App\Http\Middleware\DemoModeMiddleware::class,
     ];
 }

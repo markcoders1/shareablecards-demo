@@ -145,7 +145,7 @@
         </div>
     @endrole
 
-    @role('admin')
+    @hasanyrole(['admin', 'user'])
         <div class="container-fluid">
             <div class="d-flex flex-column">
                 <div class="row">
@@ -207,7 +207,7 @@
                 </div>
             </div>
         </div>
-    @endrole
+    @endhasanyrole
 
     @include('dashboard.templates.templates')
     @include('dashboard.templates.userTemplate')

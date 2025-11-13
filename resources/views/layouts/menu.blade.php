@@ -131,25 +131,6 @@
         </a>
     </li>
 
-    <li
-        class="nav-item {{ Request::is('sadmin/front-cms*') ||
-        Request::is('sadmin/email-subscription*') ||
-        Request::is('sadmin/features*') ||
-        Request::is('sadmin/about-us*') ||
-        Request::is('sadmin/frontTestimonial*') ||
-        Request::is('sadmin/frontFaqs*') ||
-        Request::is('sadmin/inquiries*') ||
-        Request::is('sadmin/banner*') ||
-        Request::is('sadmin/contact-us*') ||
-        Request::is('sadmin/app-download*') ||
-        Request::is('sadmin/theme-configuration*')
-            ? 'active'
-            : '' }}">
-        <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('setting.front.cms') }}">
-            <span class="aside-menu-icon pe-3"><i class="fa fa-home icon-color-bs-red"></i></span>
-            <span class="aside-menu-title">{{ __('messages.front_cms.front_cms') }}</span>
-        </a>
-    </li>
     <li class="nav-item {{ Request::is('sadmin/settings*') ? 'active' : '' }}">
         <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('setting.index') }}">
             <span class="aside-menu-icon pe-3"><i class="fas fa-cogs icon-color-bs-orange"></i></span>
@@ -159,7 +140,7 @@
 @endrole
 
 
-@role(App\Models\Role::ROLE_ADMIN)
+@hasanyrole([App\Models\Role::ROLE_ADMIN, App\Models\Role::ROLE_USER])
     <li class="user-dashboard nav-item {{ Request::is('admin/dashboard*') ? 'active' : '' }}">
         <a class="nav-link d-flex align-items-center py-3" aria-current="page" href="{{ route('admin.dashboard') }}">
             <span class="aside-menu-icon pe-3"><i class="fas fa-chart-pie icon-color-bs-blue"></i></span>
@@ -234,4 +215,4 @@
             <span class="aside-menu-title">{{ __('messages.settings') }}</span>
         </a>
     </li>
-@endrole
+@endhasanyrole

@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use App\Mail\PlanExpirationReminder;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Setting;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
@@ -76,6 +77,82 @@ class AuthenticatedSessionController extends Controller
                 'email' => __('auth.failed'),
             ]);
         }
+    }
+
+    /**
+     * Quick login as Admin.
+     */
+    public function quickLoginAsAdmin(): RedirectResponse
+    {
+        $email = config('demo_credentials.admin.email');
+        $password = config('demo_credentials.admin.password');
+        
+        // Try to login with configured email first
+        $loginSuccess = Auth::attempt(['email' => $email, 'password' => $password]);
+        
+        // If configured email doesn't exist, try to find first admin user
+        if (!$loginSuccess) {
+            $adminUser = User::whereHas('roles', function($query) {
+                $query->whereIn('name', ['admin', 'super_admin']);
+            })->where('email_verified_at', '!=', null)
+              ->where('is_active', User::IS_ACTIVE)
+              ->first();
+            
+            if ($adminUser) {
+                // Update password if needed and login
+                if (Hash::check($password, $adminUser->password)) {
+                    Auth::login($adminUser);
+                    $loginSuccess = true;
+                } else {
+                    // Update password to match demo password
+                    $adminUser->password = Hash::make($password);
+                    $adminUser->save();
+                    Auth::login($adminUser);
+                    $loginSuccess = true;
+                }
+            }
+        }
+        
+        if ($loginSuccess) {
+            $user = Auth::user();
+            
+            if ($user->email_verified_at && $user->is_active == User::IS_ACTIVE) {
+                request()->session()->regenerate();
+                // Clear any intended URL to prevent redirect to wrong dashboard
+                request()->session()->forget('url.intended');
+                return redirect(getDashboardURL());
+            } else {
+                Auth::logout();
+                return redirect()->route('login')->with('error', 'Admin account is not verified or inactive.');
+            }
+        }
+        
+        return redirect()->route('login')->with('error', 'Admin account credentials are incorrect. Please run: php artisan demo:set-credentials');
+    }
+
+    /**
+     * Quick login as User.
+     */
+    public function quickLoginAsUser(): RedirectResponse
+    {
+        $email = config('demo_credentials.user.email');
+        $password = config('demo_credentials.user.password');
+        
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            $user = Auth::user();
+            
+            if ($user->email_verified_at && $user->is_active == User::IS_ACTIVE) {
+                request()->session()->regenerate();
+                // Clear any intended URL to prevent redirect to wrong dashboard
+                request()->session()->forget('url.intended');
+                return redirect(getDashboardURL());
+            } else {
+                Auth::logout();
+                return redirect()->route('login')->with('error', 'User account is not verified or inactive.');
+            }
+        }
+        
+        return redirect()->route('login')->with('error', 'User account credentials are incorrect. Please run: php artisan demo:set-credentials');
     }
 
     /**

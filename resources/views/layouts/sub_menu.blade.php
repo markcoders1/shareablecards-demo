@@ -108,205 +108,9 @@
             href="{{ route('admins.index') }}">{{ __('messages.admins') }}</a>
     </li>
 
-    <li
-        class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0
-    {{ !Request::is(
-        'sadmin/front-cms*',
-        'sadmin/email-subscription*',
-        'sadmin/features*',
-        'sadmin/about-us*',
-        'sadmin/frontTestimonial*',
-        'sadmin/frontFaqs*',
-        'sadmin/inquiries*',
-        'sadmin/theme-configuration*',
-        'sadmin/banner*',
-        'sadmin/app-download*'
-    )
-        ? 'd-none'
-        : '' }}">
-        <a class="nav-link p-0 {{ Request::is('sadmin/front-cms*') ? 'active' : '' }}"
-            href="{{ route('setting.front.cms') }}">{{ __('messages.front_cms.front_cms') }}</a>
-    </li>
-
-    <li
-        class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0
-    {{ !Request::is(
-        'sadmin/front-cms*',
-        'sadmin/email-subscription*',
-        'sadmin/features*',
-        'sadmin/about-us*',
-        'sadmin/frontTestimonial*',
-        'sadmin/frontFaqs*',
-        'sadmin/inquiries*',
-        'sadmin/theme-configuration*',
-        'sadmin/banner*',
-        'sadmin/app-download*'
-    )
-        ? 'd-none'
-        : '' }}">
-        <a class="nav-link p-0 {{ Request::is('sadmin/email-subscription*') ? 'active' : '' }}"
-            href="{{ route('email.sub.index') }}">{{ __('messages.subscriber') }}</a>
-    </li>
-
-    <li
-        class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0
-    {{ !Request::is(
-        'sadmin/front-cms*',
-        'sadmin/email-subscription*',
-        'sadmin/features*',
-        'sadmin/about-us*',
-        'sadmin/frontTestimonial*',
-        'sadmin/frontFaqs*',
-        'sadmin/inquiries*',
-        'sadmin/theme-configuration*',
-        'sadmin/banner*',
-        'sadmin/app-download*'
-    )
-        ? 'd-none'
-        : '' }}">
-        <a class="nav-link p-0 {{ Request::is('sadmin/features*') ? 'active' : '' }}"
-            href="{{ route('features.index') }}">{{ __('messages.plan.features') }}</a>
-    </li>
-
-    <li
-        class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0
-    {{ !Request::is(
-        'sadmin/front-cms*',
-        'sadmin/email-subscription*',
-        'sadmin/features*',
-        'sadmin/about-us*',
-        'sadmin/frontTestimonial*',
-        'sadmin/frontFaqs*',
-        'sadmin/inquiries*',
-        'sadmin/theme-configuration*',
-        'sadmin/banner*',
-        'sadmin/app-download*'
-    )
-        ? 'd-none'
-        : '' }}">
-        <a class="nav-link p-0 {{ Request::is('sadmin/about-us*') ? 'active' : '' }}"
-            href="{{ route('aboutUs.index') }}">{{ __('messages.about_us.about_us') }}</a>
-    </li>
-
-    <li
-        class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0
-    {{ !Request::is(
-        'sadmin/front-cms*',
-        'sadmin/email-subscription*',
-        'sadmin/features*',
-        'sadmin/about-us*',
-        'sadmin/frontTestimonial*',
-        'sadmin/frontFaqs*',
-        'sadmin/inquiries*',
-        'sadmin/theme-configuration*',
-        'sadmin/banner*',
-        'sadmin/app-download*'
-    )
-        ? 'd-none'
-        : '' }}">
-        <a class="nav-link p-0 {{ Request::is('sadmin/frontTestimonial*') ? 'active' : '' }}"
-            href="{{ route('frontTestimonials.index') }}">{{ __('messages.vcard.testimonials') }}</a>
-    </li>
-    <li
-        class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0
-    {{ !Request::is(
-        'sadmin/front-cms*',
-        'sadmin/email-subscription*',
-        'sadmin/features*',
-        'sadmin/about-us*',
-        'sadmin/frontTestimonial*',
-        'sadmin/frontFaqs*',
-        'sadmin/inquiries*',
-        'sadmin/theme-configuration*',
-        'sadmin/banner*',
-        'sadmin/app-download*'
-    )
-        ? 'd-none'
-        : '' }}">
-        <a class="nav-link p-0 {{ Request::is('sadmin/frontFaqs*') ? 'active' : '' }}"
-            href="{{ route('frontFaqs.index') }}">{{ __('messages.faqs.faqs') }}</a>
-    </li>
 
 
-    <li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0
-    {{ !Request::is(
-       'sadmin/front-cms*',
-        'sadmin/email-subscription*',
-        'sadmin/features*',
-        'sadmin/about-us*',
-        'sadmin/frontTestimonial*',
-        'sadmin/frontFaqs*',
-        'sadmin/inquiries*',
-        'sadmin/theme-configuration*',
-        'sadmin/banner*',
-        'sadmin/app-download*',
-    )
-        ? 'd-none'
-        : '' }}">
-        <a class="nav-link p-0 {{ Request::is('sadmin/inquiries*') ? 'active' : '' }}"
-            href="{{ route('contact.contactus') }}">{{ __('messages.contact_us.inquries') }}</a>
-    </li>
 
-    <li
-        class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0
-    {{ !Request::is(
-        'sadmin/front-cms*',
-        'sadmin/email-subscription*',
-        'sadmin/features*',
-        'sadmin/about-us*',
-        'sadmin/frontTestimonial*',
-        'sadmin/frontFaqs*',
-        'sadmin/inquiries*',
-        'sadmin/theme-configuration*',
-        'sadmin/banner*',
-        'sadmin/app-download*',
-
-    )
-        ? 'd-none'
-        : '' }}">
-        <a class="nav-link p-0 {{ Request::is('sadmin/theme-configuration*') ? 'active' : '' }}"
-            href="{{ route('themeConfiguration') }}">{{__('messages.vcard.theme_config') }}</a>
-    </li>
-    <li
-        class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0
-    {{ !Request::is(
-        'sadmin/front-cms*',
-        'sadmin/email-subscription*',
-        'sadmin/features*',
-        'sadmin/about-us*',
-        'sadmin/frontTestimonial*',
-        'sadmin/inquiries*',
-        'sadmin/frontFaqs*',
-        'sadmin/theme-configuration*',
-        'sadmin/banner*',
-        'sadmin/app-download*',
-
-    )
-        ? 'd-none'
-        : '' }}">
-        <a class="nav-link p-0 {{ Request::is('sadmin/banner*') ? 'active' : '' }}"
-            href="{{ route('banner') }}">{{__('messages.front_cms.banner_title') }}</a>
-    </li>
-    <li
-    class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0
-{{ !Request::is(
-    'sadmin/front-cms*',
-    'sadmin/email-subscription*',
-    'sadmin/features*',
-    'sadmin/about-us*',
-    'sadmin/frontTestimonial*',
-    'sadmin/inquiries*',
-    'sadmin/frontFaqs*',
-    'sadmin/theme-configuration*',
-    'sadmin/banner*',
-    'sadmin/app-download*',
-
-)
-    ? 'd-none'
-    : '' }}">
-    <a class="nav-link p-0 {{ Request::is('sadmin/app-download*') ? 'active' : '' }}"
-        href="{{ route('appDownload') }}">{{__('messages.download_app_url') }}</a>
-</li>
 
     <li
         class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0
@@ -316,7 +120,7 @@
     </li>
 @endrole
 
-@role(App\Models\Role::ROLE_ADMIN)
+@hasanyrole([App\Models\Role::ROLE_ADMIN, App\Models\Role::ROLE_USER])
     <li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ !Request::is('admin/dashboard*') ? 'd-none' : '' }}">
         <a class="nav-link p-0 {{ Request::is('admin/dashboard*') ? 'active' : '' }}"
             href="{{ route('admin.dashboard') }}">{{ __('messages.dashboard') }}</a>
@@ -357,7 +161,7 @@
         <a class="nav-link p-0 {{ Request::is('admin/manage-subscription*') ? 'active' : '' }}"
             href="{{ route('subscription.index') }}">{{ __('messages.subscription.manage_subscription') }}</a>
     </li>
-@endrole
+@endhasanyrole
 
 
 <li class="nav-item position-relative mx-xl-3 mb-3 mb-xl-0 {{ !Request::is('profile*') ? 'd-none' : '' }}">

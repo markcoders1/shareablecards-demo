@@ -24,6 +24,14 @@ Route::get('/login', [AuthenticatedSessionController::class, 'create'])
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
     ->middleware(['guest', 'setLanguage']);
 
+Route::get('/quick-login/admin', [AuthenticatedSessionController::class, 'quickLoginAsAdmin'])
+    ->middleware(['guest', 'setLanguage'])
+    ->name('quick-login.admin');
+
+Route::get('/quick-login/user', [AuthenticatedSessionController::class, 'quickLoginAsUser'])
+    ->middleware(['guest', 'setLanguage'])
+    ->name('quick-login.user');
+
 Route::get('/forgot-password', [PasswordResetLinkController::class, 'create'])
     ->middleware(['guest', 'setLanguage'])
     ->name('password.request');

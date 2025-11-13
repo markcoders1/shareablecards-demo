@@ -39,6 +39,7 @@
         </script>
 
         <script src="{{ asset('assets/js/third-party.js') }}"></script>
+        <script src="{{ asset('js/demo-mode.js') }}"></script>
 
         <script data-turbo-eval="false">
             let mobileValidation = "{{ getSuperAdminSettingValue('mobile_validation') }}"
@@ -88,11 +89,12 @@
     </head>
 
     <body>
+        @include('components.demo-topbar')
         @if(getLogInUser()->language != 'ar')
         <div class="d-flex flex-column flex-root vh-100">
             <div class="d-flex flex-row flex-column-fluid">
                 @include('layouts.sidebar')
-                <div class="wrapper d-flex flex-column flex-row-fluid">
+                <div class="wrapper d-flex flex-column flex-row-fluid" style="padding-top: 40px;">
                     <div class='container-fluid d-flex align-items-stretch justify-content-between px-0'>
                         @include('layouts.header')
                     </div>
@@ -114,7 +116,7 @@
         <div class="d-flex flex-column flex-root vh-100">
             <div class="d-flex flex-row flex-column-fluid">
                 @include('layouts.sidebar')
-                <div class="wrapper d-flex flex-column flex-row-fluid">
+                <div class="wrapper d-flex flex-column flex-row-fluid" style="padding-top: 40px;">
                     <div class='container-fluid d-flex align-items-stretch justify-content-between px-0'>
                         @include('layouts.header')
                     </div>
@@ -135,6 +137,9 @@
         @include('profile.changePassword')
         @include('profile.changelanguage')
         @include('layouts.shepherd-js')
+        
+        <!-- Demo Mode Popup -->
+        @include('components.demo-mode-popup')
 
     </body>
 

@@ -279,7 +279,7 @@
                         <p class="text-gray-100 fs-18 mb-40 pb-lg-3 pe-xl-5 me-xl-5">
                             {{ __('messages.Receive_latest_news_update_and_many_other_things_every_week') }}</p>
                     </div>
-                    <form action="{{ route('email.sub') }}" method="post" id="addEmail">
+                    <form action="{{ route('email-sub') }}" method="post" id="addEmail">
                         @csrf
                         <div class="email">
                             <input type="email" name="email" class="form-control"
@@ -328,7 +328,7 @@
                         <p class="text-gray-100 fs-18 mb-40 pb-lg-3 text-end">
                             {{ __('messages.Receive_latest_news_update_and_many_other_things_every_week') }}</p>
                     </div>
-                    <form action="{{ route('email.sub') }}" method="post" id="addEmail">
+                    <form action="{{ route('email-sub') }}" method="post" id="addEmail">
                         @csrf
                         <div class="email">
                             <input type="email" name="email" class="form-control"

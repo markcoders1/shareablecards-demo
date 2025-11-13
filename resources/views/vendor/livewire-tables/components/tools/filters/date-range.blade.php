@@ -14,6 +14,7 @@
             type="text"
             x-ref="dateRangeInput"
             x-on:click="init"
+            x-on:change="changedValue($refs.dateRangeInput.value)"
             value="{{ $filter->getDateString(isset($this->appliedFilters[$filterKey]) ? $this->appliedFilters[$filterKey] : '') }}"
             wire:key="{{ $filter->generateWireKey($tableName, 'dateRange') }}"
             id="{{ $tableName }}-filter-dateRange-{{ $filterKey }}"
@@ -22,6 +23,6 @@
                 'd-inline-block w-100 form-control' => $isBootstrap,
             ])
             @if($filter->hasConfig('placeholder')) placeholder="{{ $filter->getConfig('placeholder') }}" @endif
-        />     
+        />
     </div>
 </div>

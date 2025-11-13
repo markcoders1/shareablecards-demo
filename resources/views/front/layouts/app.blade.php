@@ -78,12 +78,14 @@
 </head>
 
 <body data-bs-offset="71">
-
     <div class="@if (checkFrontLanguageSession() == 'ar') home-rtl @endif">
         @include('front.layouts.header')
         @yield('content')
         @include('front.layouts.footer')
     </div>
+    
+    <!-- Demo Mode Popup -->
+    @include('components.demo-mode-popup')
 </body>
 
 </html>

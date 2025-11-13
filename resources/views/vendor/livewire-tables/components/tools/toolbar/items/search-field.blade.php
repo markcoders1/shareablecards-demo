@@ -1,12 +1,20 @@
-@aware(['component', 'tableName'])
-<div class="mb-3 mb-sm-0">
-    <form class="">
-        <div class="position-relative width-320"> <span
-                class="position-absolute d-flex align-items-center top-0 bottom-0 left-0 text-gray-600 ms-3"> <i
-                    class="fa-solid fa-magnifying-glass"></i> </span> <input class="form-control search-box ps-8"
-                wire:model{{ $component->getSearchOptions() }}="search" type="search" placeholder="{{ __('Search') }}"
-                aria-label="Search"> </div>
-    </form>
-    @if (isset($filters['search']) && strlen($filters['search']))
-    @endif
+@aware(['isTailwind', 'isBootstrap'])
+
+<div 
+    @class([
+        'mb-3 mb-md-0 input-group' => $isBootstrap,
+        'rounded-md shadow-sm' => $isTailwind,
+        'flex' => ($isTailwind && !$this->hasSearchIcon),
+        'relative inline-flex flex-row' => $this->hasSearchIcon,
+    ])>
+
+        @if($this->hasSearchIcon)
+            <x-livewire-tables::tools.toolbar.items.search.icon :searchIcon="$this->getSearchIcon" :searchIconClasses="$this->getSearchIconClasses" :searchIconOtherAttributes="$this->getSearchIconOtherAttributes"  />
+        @endif
+
+        <x-livewire-tables::tools.toolbar.items.search.input />
+
+        @if ($this->hasSearch)
+            <x-livewire-tables::tools.toolbar.items.search.remove />
+        @endif
 </div>

@@ -40,12 +40,12 @@ class LoginRequest extends FormRequest
 	{
 		$this->ensureIsNotRateLimited();
 
-		$recaptchaResponse = $this->input('g-recaptcha-response');
-		if (!$this->verifyRecaptcha($recaptchaResponse)) {
-			throw ValidationException::withMessages([
-				'g-recaptcha-response' => [__('Recaptcha Not Verified')],
-			]);
-		}
+		// $recaptchaResponse = $this->input('g-recaptcha-response');
+		// if (!$this->verifyRecaptcha($recaptchaResponse)) {
+		// 	throw ValidationException::withMessages([
+		// 		'g-recaptcha-response' => [__('Recaptcha Not Verified')],
+		// 	]);
+		// }
 
 		// Only attempt authentication if the reCAPTCHA check passes.
 		if (!Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {

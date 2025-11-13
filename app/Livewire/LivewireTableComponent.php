@@ -19,7 +19,7 @@ class LivewireTableComponent extends DataTableComponent
 
     public bool $filterPillsStatus = false;
 
-    public string $emptyMessage = ('messages.common.no_data_available');
+    public string $emptyMessage = '';
 
     // for table header button
     public bool $showButtonOnHeader = false;
@@ -27,7 +27,7 @@ class LivewireTableComponent extends DataTableComponent
     public string $buttonComponent = '';
     public function configure(): void
     {
-
+        $this->emptyMessage = __('messages.common.no_data_available');
     }
 
     public function mountWithPerPagePagination(): void
