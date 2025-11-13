@@ -80,7 +80,7 @@
                                     @if (empty(getLogInUser()))
                                         <li>
                                             <a class="btn btn-white fs-18 d-lg-block d-none"
-                                                href="{{ route('login') }}" role="button"
+                                                href="{{ route('home') }}" role="button"
                                                 data-turbo="false">{{ __('auth.sign_in') }}</a>
                                         </li>
                                     @else
@@ -107,7 +107,7 @@
                         class="col-lg-2 col-md-3 col-sm-4 col-5 text-end order-lg-2 order-1 pe-lg-2 pe-0 ps-0 d-lg-none">
 
                         @if (empty(getLogInUser()))
-                            <a class="btn btn-white fs-18 me-sm-2" href="{{ route('login') }}" data-turbo="false"
+                            <a class="btn btn-white fs-18 me-sm-2" href="{{ route('home') }}" data-turbo="false"
                                 role="button">
                                 <span>{{ __('auth.sign_in') }}</span>
                             </a>
@@ -215,7 +215,7 @@
                                     @if (empty(getLogInUser()))
                                         <li>
                                             <a class="btn btn-white fs-18 d-lg-block d-none"
-                                                href="{{ route('login') }}" role="button"
+                                                href="{{ route('home') }}" role="button"
                                                 data-turbo="false">{{ __('auth.sign_in') }}</a>
                                         </li>
                                     @else
@@ -242,7 +242,7 @@
                         class="col-lg-2 col-md-3 col-sm-4 col-5 text-end order-lg-2 order-1 pe-lg-2 pe-0 ps-0 d-lg-none">
 
                         @if (empty(getLogInUser()))
-                            <a class="btn btn-white fs-18 me-sm-2" href="{{ route('login') }}" data-turbo="false"
+                            <a class="btn btn-white fs-18 me-sm-2" href="{{ route('home') }}" data-turbo="false"
                                 role="button">
                                 <span>{{ __('auth.sign_in') }}</span>
                             </a>

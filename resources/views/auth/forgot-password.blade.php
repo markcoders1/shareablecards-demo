@@ -63,7 +63,7 @@
                                         <span class="indicator-label text-light">
                                             {{ __('messages.email_password_reset_link') }}</span>
                                     </button>
-                                    <a href="{{ route('login') }}"
+                                    <a href="{{ route('home') }}"
                                         class="btn btn-secondary my-0 ms-5 me-0">{{ __('messages.common.cancel') }}</a>
                                 </div>
                             </div>

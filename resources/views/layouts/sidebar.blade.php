@@ -1,6 +1,6 @@
 <div class="aside-menu-container" id="sidebar">
     <div class="aside-menu-container__aside-logo flex-column-auto">
-        <a data-turbo="false" href="{{ url('/') }}" class="text-decoration-none sidebar-logo" target="_blank">
+        <a data-turbo="false" href="{{ url('/') }}" class="text-decoration-none sidebar-logo">
             <div class="image image-mini me-3">
             <img src="{{ getDashboardLogoUrl() }}" alt="Logo" class="object-fit-cover sidebar-app-logo"/>
             </div>

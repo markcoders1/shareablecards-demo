@@ -33,9 +33,9 @@
                                     {{ Form::label('app_store_link', __('messages.app_download_section.delete_account_url') . ':', ['class' => 'form-label']) }}
                                     <div class="input-group bg-light border rounded-50px overflow-hidden mb-5">
                                         <input type="text" class="form-control border-0 bg-light fs-13"
-                                            value="{{ route('login') . '?redirect=delete' }}" disabled>
+                                            value="{{ route('home') . '?redirect=delete' }}" disabled>
                                         <span id="deleteAccountURL" class="d-none" target="_blank">
-                                            {{ route('login') . '?redirect=delete' }}
+                                            {{ route('home') . '?redirect=delete' }}
                                         </span>
                                         <button class="btn text-primary copy-delete-account-url px-2"
                                             type="button">{{ __('messages.app_download_section.copy') }}</button>

@@ -136,7 +136,7 @@
                                 <div class="align-items-center text-center mt-4">
                                     <span
                                         class="text-gray-700 me-2 text-center">{{ __('messages.common.already_have_an_account') . '?' }}</span>
-                                    <a href="{{ route('login') }}" class="link-info fs-6 text-decoration-none">
+                                    <a href="{{ route('home') }}" class="link-info fs-6 text-decoration-none">
                                         {{ __('messages.common.sign_in_here') }}
                                     </a>
                                 </div>

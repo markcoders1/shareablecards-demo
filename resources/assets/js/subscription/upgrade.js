@@ -338,7 +338,7 @@ listenClick(".freePayment", function () {
         typeof getLoggedInUserdata != "undefined" &&
         getLoggedInUserdata == ""
     ) {
-        window.location.href = route("login");
+        window.location.href = route("home");
 
         return true;
     }

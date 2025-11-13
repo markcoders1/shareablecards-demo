@@ -77,17 +77,14 @@ use App\Http\Controllers\VcardSubscribersController;
 //    return (!Auth::check()) ? \redirect(route('login')) : Redirect::to(getDashboardURL());
 //});
 Route::middleware(['freshInstall'])->group(function () {
-    Route::get('/', function () {
-        return (!Auth::check()) ? \redirect(route('login')) : Redirect::to('/');
-    });
-
     //social logins
     Route::get('/login/{provider}', [SocialAuthController::class, 'redirectToSocial'])->name('social.login');
     Route::get('/login/{provider}/callback', [SocialAuthController::class, 'handleSocialCallback']);
     Route::get('/check-email/{email}', [RegisteredUserController::class, 'checkEmail'])->name('check.email');
     Route::middleware('setLanguage')->group(function () {
         Route::post('/change-language', [HomeController::class, 'changeLanguage']);
-        Route::get('/', [HomeController::class, 'index'])->name('home');
+        Route::get('/', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'create'])->middleware('guest')->name('home');
+        Route::post('/', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store'])->middleware('guest');
         Route::get('cookie', [HomeController::class, 'declineCookie'])->name('declineCookie');
         Route::get('terms-conditions', [HomeController::class, 'termCondition'])->name('terms.conditions');
         Route::get('privacy-policy', [HomeController::class, 'privacyPolicy'])->name('privacy.policy');

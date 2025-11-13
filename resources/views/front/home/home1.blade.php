@@ -194,7 +194,7 @@
                     </div>
                 </div>
                 <div class="col-12 text-center">
-                    <a href="{{ route('login') }}" class="btn btn-primary-light" role="button" data-turbo="false">{{ __('messages.analytics.view_more') }}</a>
+                    <a href="{{ route('home') }}" class="btn btn-primary-light" role="button" data-turbo="false">{{ __('messages.analytics.view_more') }}</a>
                 </div>
             </div>
         </div>

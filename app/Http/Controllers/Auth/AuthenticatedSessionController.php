@@ -123,11 +123,11 @@ class AuthenticatedSessionController extends Controller
                 return redirect(getDashboardURL());
             } else {
                 Auth::logout();
-                return redirect()->route('login')->with('error', 'Admin account is not verified or inactive.');
+                return redirect()->route('home')->with('error', 'Admin account is not verified or inactive.');
             }
         }
         
-        return redirect()->route('login')->with('error', 'Admin account credentials are incorrect. Please run: php artisan demo:set-credentials');
+        return redirect()->route('home')->with('error', 'Admin account credentials are incorrect. Please run: php artisan demo:set-credentials');
     }
 
     /**
@@ -148,11 +148,11 @@ class AuthenticatedSessionController extends Controller
                 return redirect(getDashboardURL());
             } else {
                 Auth::logout();
-                return redirect()->route('login')->with('error', 'User account is not verified or inactive.');
+                return redirect()->route('home')->with('error', 'User account is not verified or inactive.');
             }
         }
         
-        return redirect()->route('login')->with('error', 'User account credentials are incorrect. Please run: php artisan demo:set-credentials');
+        return redirect()->route('home')->with('error', 'User account credentials are incorrect. Please run: php artisan demo:set-credentials');
     }
 
     /**
@@ -166,6 +166,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/');
     }
 }

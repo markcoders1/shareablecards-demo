@@ -21,7 +21,7 @@
                     <div class="px-sm-10 px-6 mb-5  h-100 w-100">
                         <div class="text-center d-flex justify-content-center align-items-center login-app-name">
                             <div class="image image-mini me-3 mb-0">
-                                <a href="{{ route('home') }}" class="image">
+                                <a href="/" class="image">
                                     <img alt="Logo" src="{{ getLogoUrl() }}" class="img-fluid logo-fix-size">
                                 </a>
                             </div>
@@ -50,7 +50,7 @@
                             <div class="col-xl-6 w-100">
                                 <div class="copyright text-center text-muted">
                                     {{ __('messages.placeholder.all_rights_reserve') }} &copy; {{ date('Y') }} <a
-                                        href="{{ route('home') }}" class="font-weight-bold ml-1"
+                                        href="/" class="font-weight-bold ml-1"
                                         target="_blank">{{ getAppName() }}</a>
                                 </div>
                             </div>

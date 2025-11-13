@@ -27,7 +27,7 @@ class VerifyEmailController extends Controller
         if ($user->hasVerifiedEmail()) {
             Flash::success(__('messages.placeholder.your_mail_already_verified'));
 
-            return redirect(route('login'));
+            return redirect(route('home'));
         }
 
         if ($user->markEmailAsVerified()) {
@@ -44,7 +44,7 @@ class VerifyEmailController extends Controller
         }
         Flash::success(__('messages.placeholder.successfully_verified'));
 
-        return redirect(route('login'));
+        return redirect(route('home'));
     }
 
     /**
@@ -72,7 +72,7 @@ class VerifyEmailController extends Controller
             $verifiedUser->delete();
             Flash::success(__('Your email has been verified successfully.'));
 
-            return redirect(route('login'));
+            return redirect(route('home'));
         }
     }
 }

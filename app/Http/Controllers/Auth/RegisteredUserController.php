@@ -124,7 +124,7 @@ class RegisteredUserController extends AppBaseController
             Flash::success(__('messages.placeholder.user_registered_success'));
             }
 
-            return redirect(route('login'));
+            return redirect(route('home'));
         } catch (\Exception $e) {
             DB::rollBack();
 

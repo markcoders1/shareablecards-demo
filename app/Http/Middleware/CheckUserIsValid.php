@@ -21,7 +21,7 @@ class CheckUserIsValid
             $isActive = $user->is_active;
             Auth::logout();
 
-            return redirect(route('login'))->withErrors(! $isActive ? 'Your account is not active. Please contact to administrator.' : 'Your email is not verified.');
+            return redirect(route('home'))->withErrors(! $isActive ? 'Your account is not active. Please contact to administrator.' : 'Your email is not verified.');
         }
 
         return $response;

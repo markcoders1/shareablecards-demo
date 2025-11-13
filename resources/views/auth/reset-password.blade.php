@@ -70,7 +70,7 @@
                         <button type="submit" class="btn btn-primary reset-link">
                             <span class="indicator-label">{{ __('messages.reset_password') }}</span>
                         </button>
-                        <a href="{{ route('login') }}"
+                        <a href="{{ route('home') }}"
                            class="btn btn-secondary my-0 ms-5 me-0">{{__('messages.common.cancel')}}</a>
                     </div>
                 </div>

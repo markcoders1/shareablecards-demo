@@ -17,13 +17,6 @@ Route::get('/register', [RegisteredUserController::class, 'create'])
 Route::post('/register', [RegisteredUserController::class, 'store'])
     ->middleware(['guest', 'setLanguage']);
 
-Route::get('/login', [AuthenticatedSessionController::class, 'create'])
-    ->middleware(['guest', 'setLanguage'])
-    ->name('login');
-
-Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-    ->middleware(['guest', 'setLanguage']);
-
 Route::get('/quick-login/admin', [AuthenticatedSessionController::class, 'quickLoginAsAdmin'])
     ->middleware(['guest', 'setLanguage'])
     ->name('quick-login.admin');

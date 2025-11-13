@@ -151,7 +151,7 @@
 
                                 @if (empty(getLogInUser()))
                                     <a class="btn btn-white text-decoration-none fs-18 sign-in-btn d-lg-block d-none d-lg-block d-none"
-                                        href="{{ route('login') }}" data-turbo="false">
+                                        href="{{ route('home') }}" data-turbo="false">
                                         {{ __('auth.sign_in') }}
                                     </a>
                                 @else
@@ -176,7 +176,7 @@
                 <div class="col-lg-2 col-sm-3 col-5 text-end order-lg-2 order-1 pe-lg-2 pe-0 d-lg-none">
 
                     @if (empty(getLogInUser()))
-                        <a class="btn btn-white fs-18 me-sm-2" href="{{ route('login') }}" data-turbo="false">
+                        <a class="btn btn-white fs-18 me-sm-2" href="{{ route('home') }}" data-turbo="false">
                             {{ __('auth.sign_in') }}
                         </a>
                     @else
@@ -279,7 +279,7 @@
 
                                 @if (empty(getLogInUser()))
                                     <a class="btn btn-white text-decoration-none fs-18 sign-in-btn d-lg-block d-none d-lg-block d-none"
-                                        href="{{ route('login') }}" data-turbo="false">
+                                        href="{{ route('home') }}" data-turbo="false">
                                         {{ __('auth.sign_in') }}
                                     </a>
                                 @else
@@ -304,7 +304,7 @@
                 <div class="col-lg-2 col-sm-3 col-5 text-end order-lg-2 order-1 pe-lg-2 pe-0 d-lg-none">
 
                     @if (empty(getLogInUser()))
-                        <a class="btn btn-white fs-18 me-sm-2" href="{{ route('login') }}" data-turbo="false">
+                        <a class="btn btn-white fs-18 me-sm-2" href="{{ route('home') }}" data-turbo="false">
                             {{ __('auth.sign_in') }}
                         </a>
                     @else
